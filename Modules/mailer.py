@@ -12,10 +12,10 @@ from datetime import date
 def sendemail(email_receiver, newpassword):
     email_sender='from@fromdomain.com'
     
-    subjet = f'Nueva contraseña - {date.today()}'
+    subjet = f'New Password - {date.today()}'
     
     body = f"""
-    Tu nueva contraseña de acceso es: {newpassword}
+    Your new password is: {newpassword}
     """
     em = EmailMessage()
     em['From'] = email_sender
@@ -24,7 +24,7 @@ def sendemail(email_receiver, newpassword):
     em.set_content(body)
     
     try:
-        with smtplib.SMTP('mail.smtp.com') as smtp:
+        with smtplib.SMTP('smtp-server-name') as smtp:
             smtp.sendmail(email_sender, email_receiver, em.as_string())
             print ("Successfully sent email")
     except smtplib.SMTPException:

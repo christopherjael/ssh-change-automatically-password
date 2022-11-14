@@ -1,0 +1,6 @@
+wexpect
+cryptography
+string
+secrets
+smtplib
+email
