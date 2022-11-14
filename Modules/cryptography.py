@@ -5,12 +5,13 @@ Created on Mon Nov  7 10:29:29 2022
 @author: Christopher Montero
 """
 
+#IMPORTAMOS RECURSOS
 from cryptography.fernet import Fernet
 import string
 import secrets
 from random import SystemRandom, randint
 
-
+# FUNCION pARA ESCRIBIR Y GUARDAR CLAVE.
 def keygen():
     clave = Fernet.generate_key()
     with open('keys.key', 'wb') as f:
@@ -19,6 +20,7 @@ def keygen():
 def loadkey():
     return open('keys.key','rb').read()
 
+#Encrypter
 def encrypt(filename, key):
     f = Fernet(key)
     with open(filename, 'rb') as file:
